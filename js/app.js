@@ -3,10 +3,22 @@ class Tamagotchi {
 		this.name = name;
 	}
 	feed() {
-		
+		if (document.getElementById('hb1').style.backgroundColor === 'white') {
+		death();
+	} else if (document.getElementById('hb5').style.backgroundColor === 'white') {
+		$('.hunger-bar').css('background-color', 'white');
+	} else {
+		feedLevel.css('background-color', 'white');
 	}
+}
 	play() {
-		console.log('Time to play');
+		if (document.getElementById('bb1').style.backgroundColor === 'white') {
+			death();
+		} else if (document.getElementById('bb5').style.backgroundColor === 'white') {
+			$('.boredom-bar').css('background-color', 'white');
+		} else {
+			boredLevel.css('background-color', 'white');
+		}
 	}
 	sleep() {
 		console.log('Time to go to bed');
@@ -24,31 +36,23 @@ const startLevels = $('#bb1, #bb2, #bb3, #bb4, #bb5, #hb1, #hb2, #hb3, #hb4, #hb
 const feedLevel = $('#hb3, #hb4, #hb5, #hb6, #hb7, #hb8, #hb9, #hb10');
 const tiredLevel = $('#tb3, #tb4, #tb5, #tb6, #tb7, #tb8, #tb9, #tb10');
 const boredLevel = $('#bb3, #bb4, #bb5, #bb6, #bb7, #bb8, #bb9, #bb10');
-
+const yourTamagotchi = new Tamagotchi();
 function hatchFunc() {
-	const yourTamagotchi = new Tamagotchi(prompt('give your Tamagotchi a name'));
+	yourTamagotchi.name = prompt('give your Tamagotchi a name');
 	$('#name').append(`<h1>Hi! My name is ${yourTamagotchi.name}`);
 	$('.button').css('visibility', 'visible');
 	$('#hatch-button').css('visibility', 'hidden');	
 	$('img').attr('src', 'https://scontent-dfw5-1.xx.fbcdn.net/v/t1.0-0/c0.0.768.768a/s552x414/57608888_10100620046004674_860073329942331392_o.jpg?_nc_cat=105&_nc_sid=da31f3&_nc_oc=AQmw7F0EqFOgAf5easEe6bB1YuyQtSBYXADjX3Rh8JIwZSz0xLbVp_JGOQr_YdVtePM&_nc_ht=scontent-dfw5-1.xx&oh=a7507529c8cbb1cb38c7b5018a89d450&oe=5F18A1C5');
 	startLevels.css('background-color', 'red');
-	return yourTamagotchi;
+	return yourTamagotchi.name;
 }
 
 function death() {
 	$('img').attr('src', 'https://image.shutterstock.com/image-vector/gravestone-on-white-background-vector-260nw-199099982.jpg');
-	$('.hatch').prepend("<h1>Your pet has died. you should think about whether you are responsible enough for a pet");
+	$('.hatch').prepend(`<h1>${yourTamagotchi.name} has died. you should think about whether you are responsible enough for a pet`);
 }
 
-function feed() {
-	if (document.getElementById('hb1').style.backgroundColor === 'white') {
-		death();
-	} else if (document.getElementById('hb5').style.backgroundColor === 'white') {
-		$('.hunger-bar').css('background-color', 'white');
-	} else {
-		feedLevel.css('background-color', 'white');
-	}
-}
 
 $('#hatch-button').on('click', hatchFunc);
-$('#feed-button').on('click', feed);
+$('#feed-button').on('click', yourTamagotchi.feed);
+$('#play-button').on('click', yourTamagotchi.play);
