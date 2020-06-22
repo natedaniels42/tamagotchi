@@ -4,57 +4,60 @@
 	<meta charset="UTF-8">
 	<title>Tamagotchi</title>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<script
-  src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>  
-	<script src="js/app.js" type="text/javascript"></script>
+	<script defer src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>  
+	<script defer src="js/app.js" type="text/javascript"></script>
 </head>
 <body>
 	<h1>Tamagotchi</h1>
 	<section id="status-bars">
 		<span id="hunger">Hunger</span>
-		<div class="hunger-bar"></div>
-		<div class="hunger-bar"></div>
-		<div class="hunger-bar"></div>
-		<div class="hunger-bar"></div>
-		<div class="hunger-bar"></div>
-		<div class="hunger-bar"></div>
-		<div class="hunger-bar"></div>
-		<div class="hunger-bar"></div>
-		<div class="hunger-bar"></div>
-		<div class="hunger-bar"></div>
+		<div id="hb1" class="hunger-bar"></div>
+		<div id="hb2" class="hunger-bar"></div>
+		<div id="hb3" class="hunger-bar"></div>
+		<div id="hb4" class="hunger-bar"></div>
+		<div id="hb5" class="hunger-bar"></div>
+		<div id="hb6" class="hunger-bar"></div>
+		<div id="hb7" class="hunger-bar"></div>
+		<div id="hb8" class="hunger-bar"></div>
+		<div id="hb9" class="hunger-bar"></div>
+		<div id="hb10" class="hunger-bar"></div>
 		<br>
 		<span id="tiredness">Tiredness</span>
-		<div class="tiredness-bar"></div>
-		<div class="tiredness-bar"></div>
-		<div class="tiredness-bar"></div>
-		<div class="tiredness-bar"></div>
-		<div class="tiredness-bar"></div>
-		<div class="tiredness-bar"></div>
-		<div class="tiredness-bar"></div>
-		<div class="tiredness-bar"></div>
-		<div class="tiredness-bar"></div>
-		<div class="tiredness-bar"></div>
+		<div id="tb1" class="tiredness-bar"></div>
+		<div id="tb2" class="tiredness-bar"></div>
+		<div id="tb3" class="tiredness-bar"></div>
+		<div id="tb4" class="tiredness-bar"></div>
+		<div id="tb5" class="tiredness-bar"></div>
+		<div id="tb6" class="tiredness-bar"></div>
+		<div id="tb7" class="tiredness-bar"></div>
+		<div id="tb8" class="tiredness-bar"></div>
+		<div id="tb9" class="tiredness-bar"></div>
+		<div id="tb10" class="tiredness-bar"></div>
 		<br>
 		<span id="boredom">Boredom</span>
-		<div class="boredom-bar"></div>
-		<div class="boredom-bar"></div>
-		<div class="boredom-bar"></div>
-		<div class="boredom-bar"></div>
-		<div class="boredom-bar"></div>
-		<div class="boredom-bar"></div>
-		<div class="boredom-bar"></div>
-		<div class="boredom-bar"></div>
-		<div class="boredom-bar"></div>
-		<div class="boredom-bar"></div>
+		<div id="bb1" class="boredom-bar"></div>
+		<div id="bb2" class="boredom-bar"></div>
+		<div id="bb3" class="boredom-bar"></div>
+		<div id="bb4" class="boredom-bar"></div>
+		<div id="bb5" class="boredom-bar"></div>
+		<div id="bb6" class="boredom-bar"></div>
+		<div id="bb7" class="boredom-bar"></div>
+		<div id="bb8" class="boredom-bar"></div>
+		<div id="bb9" class="boredom-bar"></div>
+		<div id="bb10" class="boredom-bar"></div>
 	</section>
 	<section id="pet">
 		<img src="data:image/png;base64,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">
 	</section>
+	<section class="hatch">
+		<button id="hatch-button">Hatch</button>
+	</section>
 	<section class="buttons">
-		<button id="feed">Feed</button>
-		<button id="sleep">Sleep</button>
-		<button id="wake-up">Wake Up</button>
-		<button id="play">Play</button>
+		<button id="feed-button" class='button'>Feed</button>
+		<button id="sleep-button" class='button'>Sleep</button>
+		<button id="wake-up-button" class='button'>Wake Up</button>
+		<button id="play-button" class='button'>Play</button>
+	</section>	
 </body>
 </html>
 

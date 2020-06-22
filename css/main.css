@@ -16,7 +16,7 @@ div {
 	display: inline-block;
 	width: 10px;
 	height: 10px;
-	background-color: red;
+	background-color: white;
 	border-radius: 50%;
 }
 #pet {
@@ -28,8 +28,25 @@ div {
 
 #pet img {
 	justify-content: center;
+	width: 200px;
+	height: 200px;
 }
 
+.hatch {
+	display: flex;
+	justify-content: center;
+	padding: 50px;
+	margin: 20px;
+
+}
+
+ button {
+	width: 80px;
+	background-color: #53bdde;
+	border: none;
+	border-radius: 20%;
+
+}
 .buttons {
 	height: 50px;
 	display: flex;
@@ -43,4 +60,5 @@ div {
 	border: none;
 	border-radius: 30%;
 	margin: 0 50px;
+	visibility: hidden;
 }
