@@ -1,0 +1,46 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #a3a1a0;
+}
+
+h1 {
+	color: #955bc2;
+	text-align: center;
+}
+
+div {
+	border: 2px solid black;
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	background-color: red;
+	border-radius: 50%;
+}
+#pet {
+	height: 200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#pet img {
+	justify-content: center;
+}
+
+.buttons {
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+}
+
+.buttons button {
+	width: 80px;
+	background-color: #53bdde;
+	border: none;
+	border-radius: 30%;
+	margin: 0 50px;
+}
