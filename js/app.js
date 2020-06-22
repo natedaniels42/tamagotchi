@@ -29,4 +29,15 @@ function hatchFunc() {
 	startLevels.css('background-color', 'red');
 }
 
+function feed() {
+	if (document.getElementById('hb1').style.backgroundColor === 'white') {
+		console.log('dead');	
+	} else if (document.getElementById('hb5').style.backgroundColor === 'white') {
+		$('.hunger-bar').css('background-color', 'white');
+	} else {
+		feedLevel.css('background-color', 'white');
+	}
+}
+
 $('#hatch-button').on('click', hatchFunc);
+$('#feed-button').on('click', feed);
