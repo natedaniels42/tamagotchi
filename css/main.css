@@ -6,7 +6,7 @@ body {
 	background-color: #a3a1a0;
 }
 
-h1 {
+#name {
 	color: #955bc2;
 	text-align: center;
 }
@@ -37,7 +37,7 @@ div {
 	justify-content: center;
 	padding: 50px;
 	margin: 20px;
-
+	text-align: center;
 }
 
  button {
