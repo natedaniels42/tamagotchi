@@ -19,6 +19,7 @@ div {
 	width: 10px;
 	height: 10px;
 	border-radius: 50%;
+	background-color: rgb(255, 255, 255);
 }
 #pet {
 	height: 200px;

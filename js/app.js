@@ -3,21 +3,21 @@ class Tamagotchi {
 		this.name = name;
 	}
 	eat() {
-		if (document.getElementById('hb1').style.backgroundColor === 'none') {
+		if (document.getElementById('hb1').style.backgroundColor === 'rgb(255, 255, 255)') {
 		death();
-	} else if (document.getElementById('hb5').style.backgroundColor === 'none') {
-		$('.hunger-bar').css('background-color', 'none');
+	} else if (document.getElementById('hb5').style.backgroundColor === 'rgb(255, 255, 255)') {
+		$('.hunger-bar').css('background-color', 'rgb(255, 255, 255)');
 	} else {
-		feedLevel.css('background-color', 'none');
+		feedLevel.css('background-color', 'rgb(255, 255, 255)');
 	}
 }
 	play() {
-		if (document.getElementById('bb1').style.backgroundColor === 'none') {
+		if (document.getElementById('bb1').style.backgroundColor === 'rgb(255, 255, 255)') {
 			death();
-		} else if (document.getElementById('bb5').style.backgroundColor === 'none') {
-			$('.boredom-bar').css('background-color', 'none');
+		} else if (document.getElementById('bb5').style.backgroundColor === 'rgb(255, 255, 255)') {
+			$('.boredom-bar').css('background-color', 'rgb(255, 255, 255)');
 		} else {
-			boredLevel.css('background-color', 'none');
+			boredLevel.css('background-color', 'rgb(255, 255, 255)');
 		}
 	}
 	sleep() {
@@ -36,15 +36,15 @@ const hungerTop = document.getElementById('hb10');
 const tiredTop = document.getElementById('tb10');
 const boredTop = document.getElementById('bb10');
 const startLevels = $('#bb1, #bb2, #bb3, #bb4, #bb5, #hb1, #hb2, #hb3, #hb4, #hb5, #tb1, #tb2, #tb3, #tb4, #tb5');
-const feedLevel = $('#hb3, #hb4, #hb5, #hb6, #hb7, #hb8, #hb9');
-const tiredLevel = $('#tb3, #tb4, #tb5, #tb6, #tb7, #tb8, #tb9');
-const boredLevel = $('#bb3, #bb4, #bb5, #bb6, #bb7, #bb8, #bb9');
+const feedLevel = $('#hb3, #hb4, #hb5, #hb6, #hb7, #hb8, #hb9, #hb10');
+const tiredLevel = $('#tb3, #tb4, #tb5, #tb6, #tb7, #tb8, #tb9, #tb10');
+const boredLevel = $('#bb3, #bb4, #bb5, #bb6, #bb7, #bb8, #bb9, #bb10');
 const yourTamagotchi = new Tamagotchi();
 let time = 0;
 
 function startTimer() {
 	const timer = setInterval(function() {
-		if (!hungerTop.style.backgroundColor && !tiredTop.style.backgroundColor && !boredTop.style.backgroundColor) {
+		if (hungerTop.style.backgroundColor !== 'rgb(255, 0, 0)' && tiredTop.style.backgroundColor !== 'rgb(255, 0, 0)' && boredTop.style.backgroundColor !== 'rgb(255, 0, 0)') {
 			time++;
 			console.log(time);
 			if (time % 10 === 0) {
@@ -62,8 +62,8 @@ function startTimer() {
 
 function hungerTimer() {
 	for (let i = 1; i <= 10; i++) {
-		if (!document.getElementById(`hb${i}`).style.backgroundColor) {
-			document.getElementById(`hb${i}`).style.backgroundColor = 'red';
+		if ($(`#hb${i}`).css('background-color') !== 'rgb(255, 0, 0)') {
+			document.getElementById(`hb${i}`).style.backgroundColor = 'rgb(255, 0, 0)';
 			return;
 		}
 	}
@@ -71,8 +71,8 @@ function hungerTimer() {
 
 function tiredTimer() {
 	for (let i = 1; i <= 10; i++) {
-		if (!document.getElementById(`tb${i}`).style.backgroundColor) {
-			document.getElementById(`tb${i}`).style.backgroundColor = 'red';
+		if ($(`#tb${i}`).css('background-color') !== 'rgb(255, 0, 0)') {
+			document.getElementById(`tb${i}`).style.backgroundColor = 'rgb(255, 0, 0)';
 			return;
 		}
 	}
@@ -80,8 +80,8 @@ function tiredTimer() {
 
 function boredTimer() {
 	for (let i = 1; i <= 10; i++) {
-		if (!document.getElementById(`bb${i}`).style.backgroundColor) {
-			document.getElementById(`bb${i}`).style.backgroundColor = 'red';
+		if ($(`#bb${i}`).css('background-color') !== 'rgb(255, 0, 0)') {
+			document.getElementById(`bb${i}`).style.backgroundColor = 'rgb(255, 0, 0)';
 			return;
 		}
 	}
