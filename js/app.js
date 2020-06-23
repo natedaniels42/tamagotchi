@@ -25,16 +25,14 @@ class Tamagotchi {
 	getSleep() {
 		this.sleep = true;
 		$('img').attr('src', 'https://scontent-dfw5-1.xx.fbcdn.net/v/t1.0-9/54211691_10100608712457194_3096844443173519360_o.jpg?_nc_cat=105&_nc_sid=8bfeb9&_nc_oc=AQkGoWSofA1lPCo0juNUZAG5VNvM9Ty6KNvV1Uuqg_jwKuu0Xw6IdpDPRp9mBM8xh5k&_nc_ht=scontent-dfw5-1.xx&oh=17073fa6ce784fa3ebbf3f1e5378fb8a&oe=5F17A3F0');
-		return this.sleep;
+
 
 	}
 	wakeUp() {
 		this.sleep = false;
+		$('img').attr('src', 'https://scontent-dfw5-1.xx.fbcdn.net/v/t1.0-9/57608888_10100620046004674_860073329942331392_o.jpg?_nc_cat=105&_nc_sid=8bfeb9&_nc_oc=AQkTToCoTq8rCGMzljNfaFAEp1aXJTZGgELqyt8953XJjzwCgSGvCv2PCBgTxW9CAuI&_nc_ht=scontent-dfw5-1.xx&oh=ced60ac15631b932c3c3b4ec5f4874d5&oe=5F18A580');
 	}
 }
-
-
-
 
 const hatchButton = document.getElementById('hatch-button');
 const hungerTop = document.getElementById('hb10');
@@ -49,16 +47,17 @@ let time = 0;
 
 function startTimer() {
 	const timer = setInterval(function() {
+		let tamagotchi = yourTamagotchi;
 		if (hungerTop.style.backgroundColor !== 'rgb(255, 0, 0)' && tiredTop.style.backgroundColor !== 'rgb(255, 0, 0)' && boredTop.style.backgroundColor !== 'rgb(255, 0, 0)') {
 			time++;
 			console.log(time);
-			console.log(yourTamagotchi);
+			console.log(tamagotchi);
 			if (time % 60 === 0) {
 				birthday();
-			//if (time % 60 === 0) {
+			} else if (time % 5 === 0 && tamagotchi.sleep) {
 				//for (let i = 1; i < 50; i++)
-				//console.log('works');
-				//sleepTimer();
+				console.log('works');
+				sleepTimer();
 			} else if (time % 10 === 0) {
 				hungerTimer();
 				tiredTimer();
@@ -140,7 +139,12 @@ function birthday() {
 
 $('#name-button').on('click', pickName);
 $('#hatch-button').on('click', hatch);
-$('#sleep-button').on('click', yourTamagotchi.getSleep);
+$('#sleep-button').on('click', function() {
+	yourTamagotchi.getSleep();
+});
+$('#wake-up-button').on('click', function() {
+	yourTamagotchi.wakeUp();
+})
 $('#feed-button').on('click', yourTamagotchi.eat);
 $('#play-button').on('click', yourTamagotchi.play);
 
