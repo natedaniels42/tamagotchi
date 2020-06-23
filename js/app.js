@@ -1,16 +1,18 @@
 class Tamagotchi {
-	constructor(name) {
+	constructor(name, sleep, age) {
 		this.name = name;
+		this.sleep = false;
+		this.age = 0;
 	}
 	eat() {
 		if (document.getElementById('hb1').style.backgroundColor === 'rgb(255, 255, 255)') {
-		death();
-	} else if (document.getElementById('hb5').style.backgroundColor === 'rgb(255, 255, 255)') {
-		$('.hunger-bar').css('background-color', 'rgb(255, 255, 255)');
-	} else {
-		feedLevel.css('background-color', 'rgb(255, 255, 255)');
+			death();
+		} else if (document.getElementById('hb5').style.backgroundColor === 'rgb(255, 255, 255)') {
+			$('.hunger-bar').css('background-color', 'rgb(255, 255, 255)');
+		} else {
+			feedLevel.css('background-color', 'rgb(255, 255, 255)');
+		}
 	}
-}
 	play() {
 		if (document.getElementById('bb1').style.backgroundColor === 'rgb(255, 255, 255)') {
 			death();
@@ -20,11 +22,14 @@ class Tamagotchi {
 			boredLevel.css('background-color', 'rgb(255, 255, 255)');
 		}
 	}
-	sleep() {
-		console.log('Time to go to bed');
+	getSleep() {
+		this.sleep = true;
+		$('img').attr('src', 'https://scontent-dfw5-1.xx.fbcdn.net/v/t1.0-9/54211691_10100608712457194_3096844443173519360_o.jpg?_nc_cat=105&_nc_sid=8bfeb9&_nc_oc=AQkGoWSofA1lPCo0juNUZAG5VNvM9Ty6KNvV1Uuqg_jwKuu0Xw6IdpDPRp9mBM8xh5k&_nc_ht=scontent-dfw5-1.xx&oh=17073fa6ce784fa3ebbf3f1e5378fb8a&oe=5F17A3F0');
+		return this.sleep;
+
 	}
 	wakeUp() {
-		console.log('Time to get up');
+		this.sleep = false;
 	}
 }
 
@@ -47,7 +52,14 @@ function startTimer() {
 		if (hungerTop.style.backgroundColor !== 'rgb(255, 0, 0)' && tiredTop.style.backgroundColor !== 'rgb(255, 0, 0)' && boredTop.style.backgroundColor !== 'rgb(255, 0, 0)') {
 			time++;
 			console.log(time);
-			if (time % 10 === 0) {
+			console.log(yourTamagotchi);
+			if (time % 60 === 0) {
+				birthday();
+			//if (time % 60 === 0) {
+				//for (let i = 1; i < 50; i++)
+				//console.log('works');
+				//sleepTimer();
+			} else if (time % 10 === 0) {
 				hungerTimer();
 				tiredTimer();
 				boredTimer();
@@ -55,15 +67,23 @@ function startTimer() {
 		} else {
 			death();
 			clearInterval(timer);
-
 		}
 	}, 1000);
+}
+
+function sleepTimer() {
+	for (let i = 10; i > 0; i--) {
+		if ($(`#tb${i}`).css('backgroundColor') !== 'rgb(255, 255, 255)') {
+			$(`#tb${i}`).css('backgroundColor', 'rgb(255, 255, 255');
+			return;
+		}
+	}
 }
 
 function hungerTimer() {
 	for (let i = 1; i <= 10; i++) {
 		if ($(`#hb${i}`).css('background-color') !== 'rgb(255, 0, 0)') {
-			document.getElementById(`hb${i}`).style.backgroundColor = 'rgb(255, 0, 0)';
+			$(`#hb${i}`).css('background-color', 'rgb(255, 0, 0)');
 			return;
 		}
 	}
@@ -72,7 +92,7 @@ function hungerTimer() {
 function tiredTimer() {
 	for (let i = 1; i <= 10; i++) {
 		if ($(`#tb${i}`).css('background-color') !== 'rgb(255, 0, 0)') {
-			document.getElementById(`tb${i}`).style.backgroundColor = 'rgb(255, 0, 0)';
+			$(`#tb${i}`).css('background-color', 'rgb(255, 0, 0)');
 			return;
 		}
 	}
@@ -81,7 +101,7 @@ function tiredTimer() {
 function boredTimer() {
 	for (let i = 1; i <= 10; i++) {
 		if ($(`#bb${i}`).css('background-color') !== 'rgb(255, 0, 0)') {
-			document.getElementById(`bb${i}`).style.backgroundColor = 'rgb(255, 0, 0)';
+			$(`#bb${i}`).css('background-color', 'rgb(255, 0, 0)');
 			return;
 		}
 	}
@@ -100,8 +120,9 @@ function hatch() {
 	$('.button').css('visibility', 'visible');
 	$('#hatch-button').css('visibility', 'hidden');	
 	$('.buttons h1').remove();
-	$('img').attr('src', 'https://cdn1.thr.com/sites/default/files/imagecache/NFE_portrait/2011/11/waldo_pose_a_p.jpg');
+	$('img').attr('src', 'https://scontent-dfw5-1.xx.fbcdn.net/v/t1.0-9/57608888_10100620046004674_860073329942331392_o.jpg?_nc_cat=105&_nc_sid=8bfeb9&_nc_oc=AQkTToCoTq8rCGMzljNfaFAEp1aXJTZGgELqyt8953XJjzwCgSGvCv2PCBgTxW9CAuI&_nc_ht=scontent-dfw5-1.xx&oh=ced60ac15631b932c3c3b4ec5f4874d5&oe=5F18A580');
 	startLevels.css('background-color', 'red');
+	$('.age').append(`<span>${yourTamagotchi.age}`);
 	startTimer();
 	}
 
@@ -111,10 +132,21 @@ function death() {
 	$('.buttons').remove();
 }
 
+function birthday() {
+	yourTamagotchi.age++;
+	$('.age span').text(`${yourTamagotchi.age}`);	
+}
+
+
 $('#name-button').on('click', pickName);
 $('#hatch-button').on('click', hatch);
+$('#sleep-button').on('click', yourTamagotchi.getSleep);
 $('#feed-button').on('click', yourTamagotchi.eat);
 $('#play-button').on('click', yourTamagotchi.play);
+
+
+
+
 
 
 
