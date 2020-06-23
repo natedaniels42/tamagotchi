@@ -41,7 +41,11 @@ div {
 	justify-content: center;
 	padding: 50px;
 	margin: 20px;
-	text-align: center;
+}
+
+#hatch-button {
+	visibility: hidden;
+	justify-content: center;
 }
 
  button {
