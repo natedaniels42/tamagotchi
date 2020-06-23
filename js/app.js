@@ -3,21 +3,21 @@ class Tamagotchi {
 		this.name = name;
 	}
 	eat() {
-		if (document.getElementById('hb1').style.backgroundColor === 'white') {
+		if (document.getElementById('hb1').style.backgroundColor === 'none') {
 		death();
-	} else if (document.getElementById('hb5').style.backgroundColor === 'white') {
-		$('.hunger-bar').css('background-color', 'white');
+	} else if (document.getElementById('hb5').style.backgroundColor === 'none') {
+		$('.hunger-bar').css('background-color', 'none');
 	} else {
-		feedLevel.css('background-color', 'white');
+		feedLevel.css('background-color', 'none');
 	}
 }
 	play() {
-		if (document.getElementById('bb1').style.backgroundColor === 'white') {
+		if (document.getElementById('bb1').style.backgroundColor === 'none') {
 			death();
-		} else if (document.getElementById('bb5').style.backgroundColor === 'white') {
-			$('.boredom-bar').css('background-color', 'white');
+		} else if (document.getElementById('bb5').style.backgroundColor === 'none') {
+			$('.boredom-bar').css('background-color', 'none');
 		} else {
-			boredLevel.css('background-color', 'white');
+			boredLevel.css('background-color', 'none');
 		}
 	}
 	sleep() {
@@ -36,20 +36,57 @@ const hungerTop = document.getElementById('hb10');
 const tiredTop = document.getElementById('tb10');
 const boredTop = document.getElementById('bb10');
 const startLevels = $('#bb1, #bb2, #bb3, #bb4, #bb5, #hb1, #hb2, #hb3, #hb4, #hb5, #tb1, #tb2, #tb3, #tb4, #tb5');
-const feedLevel = $('#hb3, #hb4, #hb5, #hb6, #hb7, #hb8, #hb9, #hb10');
-const tiredLevel = $('#tb3, #tb4, #tb5, #tb6, #tb7, #tb8, #tb9, #tb10');
-const boredLevel = $('#bb3, #bb4, #bb5, #bb6, #bb7, #bb8, #bb9, #bb10');
+const feedLevel = $('#hb3, #hb4, #hb5, #hb6, #hb7, #hb8, #hb9');
+const tiredLevel = $('#tb3, #tb4, #tb5, #tb6, #tb7, #tb8, #tb9');
+const boredLevel = $('#bb3, #bb4, #bb5, #bb6, #bb7, #bb8, #bb9');
 const yourTamagotchi = new Tamagotchi();
 let time = 0;
-/*
+
 function startTimer() {
 	const timer = setInterval(function() {
-		if (time < 30) {
+		if (!hungerTop.style.backgroundColor && !tiredTop.style.backgroundColor && !boredTop.style.backgroundColor) {
 			time++;
 			console.log(time);
+			if (time % 10 === 0) {
+				hungerTimer();
+				tiredTimer();
+				boredTimer();
+			}
+		} else {
+			death();
+			clearInterval(timer);
+
 		}
 	}, 1000);
-*/
+}
+
+function hungerTimer() {
+	for (let i = 1; i <= 10; i++) {
+		if (!document.getElementById(`hb${i}`).style.backgroundColor) {
+			document.getElementById(`hb${i}`).style.backgroundColor = 'red';
+			return;
+		}
+	}
+}
+
+function tiredTimer() {
+	for (let i = 1; i <= 10; i++) {
+		if (!document.getElementById(`tb${i}`).style.backgroundColor) {
+			document.getElementById(`tb${i}`).style.backgroundColor = 'red';
+			return;
+		}
+	}
+}
+
+function boredTimer() {
+	for (let i = 1; i <= 10; i++) {
+		if (!document.getElementById(`bb${i}`).style.backgroundColor) {
+			document.getElementById(`bb${i}`).style.backgroundColor = 'red';
+			return;
+		}
+	}
+}
+
 function pickName() {
 	yourTamagotchi.name = prompt('give your Tamagotchi a name');
 	$('#name-button').remove();
@@ -65,8 +102,7 @@ function hatch() {
 	$('.buttons h1').remove();
 	$('img').attr('src', 'https://cdn1.thr.com/sites/default/files/imagecache/NFE_portrait/2011/11/waldo_pose_a_p.jpg');
 	startLevels.css('background-color', 'red');
-	//startTimer();
-	
+	startTimer();
 	}
 
 function death() {
@@ -80,8 +116,6 @@ $('#hatch-button').on('click', hatch);
 $('#feed-button').on('click', yourTamagotchi.eat);
 $('#play-button').on('click', yourTamagotchi.play);
 
-//console.log(hungerTop.style.backgroundColor);
-//console.log(tiredTop.style.backgroundColor);
-//console.log(document.getElementById('hb10').style.backgroundColor);
+
 
 
