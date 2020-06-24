@@ -8,7 +8,7 @@ class Tamagotchi {
 	eat() {
 		if (!this.sleep) {
 			if (this.evolved) {
-				$('img').attr('src', 'https://media3.giphy.com/media/EuesNM8qJVOTu/giphy.webp?cid=ecf05e4790c0e801f372b5f7c6d8bec7733f7f20f06df26d&rid=giphy.webp')
+				$('img').attr('src', 'https://media1.giphy.com/media/5Xlaz6wWOqxLa/giphy.gif?cid=ecf05e4730bc22b3947c058a363f9b6b91c27a50d6164cb9&rid=giphy.gif')
 			} else { 
 				$('img').attr('src','https://media1.giphy.com/media/i2Hctnr6h3uW1ciekp/giphy.gif?cid=ecf05e47771442bdb22af6ddc2c89551316152da100f9c7c&rid=giphy.gif');
 			}
@@ -24,7 +24,7 @@ class Tamagotchi {
 	play() {
 		if (!this.sleep) {
 			if (this.evolved) {
-				$('img').attr('src', 'https://media1.giphy.com/media/l0MYv61yrzZu6roFG/giphy.gif');
+				$('img').attr('src', 'https://media2.giphy.com/media/IhgKEBNmk3aZEe4dbw/giphy.gif?cid=ecf05e4750e8747a862816337a6111b5ca5a1cc91c67e8ce&rid=giphy.gif');
 			} else {	
 				$('img').attr('src', playImage[randomNumber()]);
 			}
@@ -41,7 +41,7 @@ class Tamagotchi {
 		if (!this.sleep) {
 			this.sleep = true;
 			if (this.evolved) {
-				$('img').attr('src', 'https://media.giphy.com/media/3o6UBe1wfHDWNYhL8Y/giphy.gif');
+				$('img').attr('src', 'https://media2.giphy.com/media/gB0vERk5kFR5u/giphy.gif?cid=ecf05e47307356bb540b51256b67e29bb86c80379dd76755&rid=giphy.gif');
 			} else {
 				$('img').attr('src', sleepImage[randomNumber()]);
 			}
@@ -51,7 +51,7 @@ class Tamagotchi {
 		if (this.sleep) {
 			this.sleep = false;
 			if (this.evolved) {
-				$('img').attr('src', 'https://media1.giphy.com/media/xT9DPzhNGA8MKjxwFG/200.webp?cid=ecf05e4790c0e801f372b5f7c6d8bec7733f7f20f06df26d&rid=200.webp');
+				$('img').attr('src', 'https://media1.giphy.com/media/daOM5veK5Mwasb5TLY/giphy.gif?cid=ecf05e47a5745400e47c11d447370a9bb8b793087fc98a28&rid=giphy.gif');
 			} else {
 				$('img').attr('src', wakeImage[randomNumber()]);
 			}
@@ -61,7 +61,7 @@ class Tamagotchi {
 		if (!this.sleep) {
 			this.evolved = true;
 			$('#evolve-button').css('visibility', 'hidden');
-			$('img').attr('src', 'https://media2.giphy.com/media/J93sVmfYBtsRi/200.gif');
+			$('img').attr('src', 'https://media0.giphy.com/media/Tf3BH96icg4BwOxWBL/giphy.gif?cid=ecf05e47135313d04f250f615a43aa434cb92a74fa058781&rid=giphy.gif');
 		}
 	}
 }
