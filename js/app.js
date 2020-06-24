@@ -149,6 +149,7 @@ function playAgain() {
 	$('#play-again').css('visibility', 'hidden');
 	$('.age span').remove();
 	$('div').css('background-color', 'rgb(255, 255, 255)');
+	$('img').attr('src', 'https://st2.depositphotos.com/3687485/10323/v/950/depositphotos_103239208-stock-illustration-color-easter-egg-cartoon-spring.jpg');
 }
 
 $('#name-button').on('click', pickName);

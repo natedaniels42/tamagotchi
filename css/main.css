@@ -27,6 +27,7 @@ div {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
 }
 
 #pet img {
@@ -51,6 +52,7 @@ div {
 #name-button {
 	visibility: visible;
 }
+
 #hatch-button {
 	visibility: hidden;
 	justify-content: center;
