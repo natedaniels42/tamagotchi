@@ -5,18 +5,20 @@ class Tamagotchi {
 		this.age = 0;
 	}
 	eat() {
-		if (document.getElementById('hb2').style.backgroundColor === 'rgb(255, 255, 255)') {
+		$('img').attr('src','https://media1.giphy.com/media/i2Hctnr6h3uW1ciekp/giphy.gif?cid=ecf05e47771442bdb22af6ddc2c89551316152da100f9c7c&rid=giphy.gif');
+		if ($('#hb2').css('background-color') === 'rgb(255, 255, 255)') {
 			$('#hb1').css('background-color', 'rgb(255, 255, 255)');
-		} else if (document.getElementById('hb5').style.backgroundColor === 'rgb(255, 255, 255)') {
+		} else if ($('#hb5').css('background-color') === 'rgb(255, 255, 255)') {
 			hungerMid.css('background-color', 'rgb(255, 255, 255)');
 		} else {
 			feedLevel.css('background-color', 'rgb(255, 255, 255)');
 		}
 	}
 	play() {
-		if (document.getElementById('bb2').style.backgroundColor === 'rgb(255, 255, 255)') {
+		$('img').attr('src', playImage[randomNumber()]);
+		if ($('#bb2').css('background-color') === 'rgb(255, 255, 255)') {
 			$('#bb1').css('background-color', 'rgb(255, 255, 255)');
-		} else if (document.getElementById('bb5').style.backgroundColor === 'rgb(255, 255, 255)') {
+		} else if ($('#bb5').css('background-color') === 'rgb(255, 255, 255)') {
 			boredMid.css('background-color', 'rgb(255, 255, 255)');
 		} else {
 			boredLevel.css('background-color', 'rgb(255, 255, 255)');
@@ -24,21 +26,21 @@ class Tamagotchi {
 	}
 	getSleep() {
 		this.sleep = true;
-		$('img').attr('src', 'https://scontent-dfw5-1.xx.fbcdn.net/v/t1.0-9/54211691_10100608712457194_3096844443173519360_o.jpg?_nc_cat=105&_nc_sid=8bfeb9&_nc_oc=AQkGoWSofA1lPCo0juNUZAG5VNvM9Ty6KNvV1Uuqg_jwKuu0Xw6IdpDPRp9mBM8xh5k&_nc_ht=scontent-dfw5-1.xx&oh=17073fa6ce784fa3ebbf3f1e5378fb8a&oe=5F17A3F0');
+		$('img').attr('src', sleepImage[randomNumber()]);
 	}
 	wakeUp() {
 		this.sleep = false;
-		$('img').attr('src', 'https://scontent-dfw5-1.xx.fbcdn.net/v/t1.0-9/57608888_10100620046004674_860073329942331392_o.jpg?_nc_cat=105&_nc_sid=8bfeb9&_nc_oc=AQkTToCoTq8rCGMzljNfaFAEp1aXJTZGgELqyt8953XJjzwCgSGvCv2PCBgTxW9CAuI&_nc_ht=scontent-dfw5-1.xx&oh=ced60ac15631b932c3c3b4ec5f4874d5&oe=5F18A580');
+		$('img').attr('src', wakeImage[randomNumber()]);
 	}
 	evolve() {}
 }
 
-const hatchButton = document.getElementById('hatch-button');
-const hungerTop = document.getElementById('hb10');
-const tiredTop = document.getElementById('tb10');
-const boredTop = document.getElementById('bb10');
-const hungerBottom = document.getElementById('hb1');
-const boredBottom = document.getElementById('bb1');
+const hatchButton = $('#hatch-button');
+const hungerTop = $('#hb10');
+const tiredTop = $('#tb10');
+const boredTop = $('#bb10');
+const hungerBottom = $('#hb1');
+const boredBottom = $('#bb1');
 const tiredBottom = $('#tb1');
 const hungerMid = $('#hb2, #hb3, #hb4, #hb5, #hb6, #hb7, #hb8, #hb9, #hb10');
 const boredMid = $('#bb2, #bb3, #bb4, #bb5, #bb6, #bb7, #bb8, #bb9, #bb10')
@@ -47,12 +49,19 @@ const feedLevel = $('#hb3, #hb4, #hb5, #hb6, #hb7, #hb8, #hb9, #hb10');
 const tiredLevel = $('#tb3, #tb4, #tb5, #tb6, #tb7, #tb8, #tb9, #tb10');
 const boredLevel = $('#bb3, #bb4, #bb5, #bb6, #bb7, #bb8, #bb9, #bb10');
 const yourTamagotchi = new Tamagotchi();
+const hatchImage = ['https://media1.giphy.com/media/3lx1OUokCgBTPS4DFG/giphy.gif?cid=ecf05e47771442bdb22af6ddc2c89551316152da100f9c7c&rid=giphy.gif', 'https://media2.giphy.com/media/8vRkhUchMLddbr7pBV/giphy.gif?cid=ecf05e47b6ce1d135251ccf7049f716c97e1fc4b661ae730&rid=giphy.gif', 'https://media0.giphy.com/media/1qbSNZXvP8QUA3hiXv/giphy.gif?cid=ecf05e4731992dab22ac2fc220b9e4fbc2f088a5ef899161&rid=giphy.gif'];
+const sleepImage = ['https://media2.giphy.com/media/9PtjeJA6KnTnMZIDED/giphy.gif?cid=ecf05e47771442bdb22af6ddc2c89551316152da100f9c7c&rid=giphy.gif', 'https://media3.giphy.com/media/1PgNN51VqTs8BcYOs6/giphy.gif?cid=ecf05e4745fd7e7c94f122107816f0e75e479f7c0b6e471d&rid=giphy.gif', 'https://media2.giphy.com/media/8YsZQaSI7c4f7g6bZm/giphy.gif?cid=ecf05e47f7068eb1757d83a7e5794a99c2b1fd93a60c78e4&rid=giphy.gif'];
+const wakeImage = ['https://media2.giphy.com/media/1AjEeRnDwO3Sc2VF7G/giphy.gif?cid=ecf05e47771442bdb22af6ddc2c89551316152da100f9c7c&rid=giphy.gif', 'https://media0.giphy.com/media/fxOcPNZkLa68iQ52l9/giphy.gif?cid=ecf05e4792a9c39c8bfd0ff9c8e046689c2eccac631f08c8&rid=giphy.gif', 'https://media0.giphy.com/media/1r8Sh7qL6jl5hKd82X/giphy.gif?cid=ecf05e47b6ce1d135251ccf7049f716c97e1fc4b661ae730&rid=giphy.gif'];
+const playImage = ['https://media0.giphy.com/media/atajvz5OSnwlg07vXN/giphy.gif?cid=ecf05e47589b1e9bc488eb65a860716cdea8653d4ce01a1a&rid=giphy.gif', 'https://media1.giphy.com/media/fik3syvAT6YXbRWjF5/giphy.gif?cid=ecf05e4731992dab22ac2fc220b9e4fbc2f088a5ef899161&rid=giphy.gif', 'https://media1.giphy.com/media/Y4sWCxVW2vHbGWfJPb/giphy.gif?cid=ecf05e4792a9c39c8bfd0ff9c8e046689c2eccac631f08c8&rid=giphy.gif'];
 let time = 0;
 
+function randomNumber() {
+	return Math.floor(Math.random() * 3);
+}
 function startTimer() {
 	const timer = setInterval(function() {
 		let tamagotchi = yourTamagotchi;
-		if (hungerTop.style.backgroundColor !== 'rgb(255, 0, 0)' && tiredTop.style.backgroundColor !== 'rgb(255, 0, 0)' && boredTop.style.backgroundColor !== 'rgb(255, 0, 0)' && hungerBottom.style.backgroundColor !== 'rgb(255, 255, 255)' && boredBottom.style.backgroundColor !== 'rgb(255, 255, 255)') {
+		if (hungerTop.css('background-color') !== 'rgb(255, 0, 0)' && tiredTop.css('background-color') !== 'rgb(255, 0, 0)' && boredTop.css('background-color') !== 'rgb(255, 0, 0)' && hungerBottom.css('background-color') !== 'rgb(255, 255, 255)' && boredBottom.css('background-color') !== 'rgb(255, 255, 255)') {
 			time++;
 			console.log(time);
 			console.log(tamagotchi);
@@ -123,14 +132,14 @@ function hatch() {
 	$('.button').css('visibility', 'visible');
 	$('#hatch-button').css('visibility', 'hidden');	
 	$('.buttons h1').remove();
-	$('img').attr('src', 'https://scontent-dfw5-1.xx.fbcdn.net/v/t1.0-9/57608888_10100620046004674_860073329942331392_o.jpg?_nc_cat=105&_nc_sid=8bfeb9&_nc_oc=AQkTToCoTq8rCGMzljNfaFAEp1aXJTZGgELqyt8953XJjzwCgSGvCv2PCBgTxW9CAuI&_nc_ht=scontent-dfw5-1.xx&oh=ced60ac15631b932c3c3b4ec5f4874d5&oe=5F18A580');
+	$('img').attr('src', hatchImage[randomNumber()]);
 	startLevels.css('background-color', 'red');
 	$('.age').append(`<span>${yourTamagotchi.age}`);
 	startTimer();
 	}
 
 function death() {
-	$('img').attr('src', 'https://image.shutterstock.com/image-vector/gravestone-on-white-background-vector-260nw-199099982.jpg');
+	$('img').attr('src', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQwYElBS0lUKIonisIFB0Gi2XG7D-dFGNNvXg&usqp=CAU');
 	$('.hatch').prepend(`<h1>${yourTamagotchi.name} has died. you should think about whether you are responsible enough for a pet`);
 	$('.buttons button').css('visibility', 'hidden');
 	$('#greeting').remove();
@@ -150,6 +159,7 @@ function playAgain() {
 	$('.age span').remove();
 	$('div').css('background-color', 'rgb(255, 255, 255)');
 	$('img').attr('src', 'https://st2.depositphotos.com/3687485/10323/v/950/depositphotos_103239208-stock-illustration-color-easter-egg-cartoon-spring.jpg');
+	yourTamagotchi.age = 0;
 }
 
 $('#name-button').on('click', pickName);

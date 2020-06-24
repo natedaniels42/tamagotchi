@@ -5,7 +5,6 @@
 body {
 	background-image: url("https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v372-binn-sasi-09-swissdesignbackground_2.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=6f985f92d75684daff5ca2da83c41368");
 	font-family: 'Sriracha', cursive;
-
 }
 
 #name {
@@ -79,5 +78,14 @@ div {
 	border: none;
 	border-radius: 30%;
 	margin: 0 50px;
+	visibility: hidden;
+}
+
+.evolve {
+	display: flex;
+	justify-content: center;
+}
+
+#evolve-button {
 	visibility: hidden;
 }
