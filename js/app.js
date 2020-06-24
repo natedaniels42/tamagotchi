@@ -160,6 +160,7 @@ function playAgain() {
 	$('div').css('background-color', 'rgb(255, 255, 255)');
 	$('img').attr('src', 'https://st2.depositphotos.com/3687485/10323/v/950/depositphotos_103239208-stock-illustration-color-easter-egg-cartoon-spring.jpg');
 	yourTamagotchi.age = 0;
+	time = 0;
 }
 
 $('#name-button').on('click', pickName);
