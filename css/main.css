@@ -84,6 +84,7 @@ div {
 .evolve {
 	display: flex;
 	justify-content: center;
+	height: 50px;
 }
 
 #evolve-button {

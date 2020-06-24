@@ -1,38 +1,69 @@
 class Tamagotchi {
-	constructor(name, sleep, age) {
+	constructor(name, sleep, age, evolved) {
 		this.name = name;
 		this.sleep = false;
 		this.age = 0;
+		this.evolved = false;
 	}
 	eat() {
-		$('img').attr('src','https://media1.giphy.com/media/i2Hctnr6h3uW1ciekp/giphy.gif?cid=ecf05e47771442bdb22af6ddc2c89551316152da100f9c7c&rid=giphy.gif');
-		if ($('#hb2').css('background-color') === 'rgb(255, 255, 255)') {
-			$('#hb1').css('background-color', 'rgb(255, 255, 255)');
-		} else if ($('#hb5').css('background-color') === 'rgb(255, 255, 255)') {
-			hungerMid.css('background-color', 'rgb(255, 255, 255)');
-		} else {
-			feedLevel.css('background-color', 'rgb(255, 255, 255)');
+		if (!this.sleep) {
+			if (this.evolved) {
+				$('img').attr('src', 'https://media3.giphy.com/media/EuesNM8qJVOTu/giphy.webp?cid=ecf05e4790c0e801f372b5f7c6d8bec7733f7f20f06df26d&rid=giphy.webp')
+			} else { 
+				$('img').attr('src','https://media1.giphy.com/media/i2Hctnr6h3uW1ciekp/giphy.gif?cid=ecf05e47771442bdb22af6ddc2c89551316152da100f9c7c&rid=giphy.gif');
+			}
+			if ($('#hb2').css('background-color') === 'rgb(255, 255, 255)') {
+				$('#hb1').css('background-color', 'rgb(255, 255, 255)');
+			} else if ($('#hb5').css('background-color') === 'rgb(255, 255, 255)') {
+				hungerMid.css('background-color', 'rgb(255, 255, 255)');
+			} else {
+				feedLevel.css('background-color', 'rgb(255, 255, 255)');
+			}
 		}
 	}
 	play() {
-		$('img').attr('src', playImage[randomNumber()]);
-		if ($('#bb2').css('background-color') === 'rgb(255, 255, 255)') {
-			$('#bb1').css('background-color', 'rgb(255, 255, 255)');
-		} else if ($('#bb5').css('background-color') === 'rgb(255, 255, 255)') {
-			boredMid.css('background-color', 'rgb(255, 255, 255)');
-		} else {
-			boredLevel.css('background-color', 'rgb(255, 255, 255)');
+		if (!this.sleep) {
+			if (this.evolved) {
+				$('img').attr('src', 'https://media1.giphy.com/media/l0MYv61yrzZu6roFG/giphy.gif');
+			} else {	
+				$('img').attr('src', playImage[randomNumber()]);
+			}
+			if ($('#bb2').css('background-color') === 'rgb(255, 255, 255)') {
+				$('#bb1').css('background-color', 'rgb(255, 255, 255)');
+			} else if ($('#bb5').css('background-color') === 'rgb(255, 255, 255)') {
+				boredMid.css('background-color', 'rgb(255, 255, 255)');
+			} else {
+				boredLevel.css('background-color', 'rgb(255, 255, 255)');
+			}
 		}
 	}
 	getSleep() {
-		this.sleep = true;
-		$('img').attr('src', sleepImage[randomNumber()]);
+		if (!this.sleep) {
+			this.sleep = true;
+			if (this.evolved) {
+				$('img').attr('src', 'https://media.giphy.com/media/3o6UBe1wfHDWNYhL8Y/giphy.gif');
+			} else {
+				$('img').attr('src', sleepImage[randomNumber()]);
+			}
+		}
 	}
 	wakeUp() {
-		this.sleep = false;
-		$('img').attr('src', wakeImage[randomNumber()]);
+		if (this.sleep) {
+			this.sleep = false;
+			if (this.evolved) {
+				$('img').attr('src', 'https://media1.giphy.com/media/xT9DPzhNGA8MKjxwFG/200.webp?cid=ecf05e4790c0e801f372b5f7c6d8bec7733f7f20f06df26d&rid=200.webp');
+			} else {
+				$('img').attr('src', wakeImage[randomNumber()]);
+			}
+		}
+	}	
+	evolve() {
+		if (!this.sleep) {
+			this.evolved = true;
+			$('#evolve-button').css('visibility', 'hidden');
+			$('img').attr('src', 'https://media2.giphy.com/media/J93sVmfYBtsRi/200.gif');
+		}
 	}
-	evolve() {}
 }
 
 const hatchButton = $('#hatch-button');
@@ -48,7 +79,7 @@ const startLevels = $('#bb1, #bb2, #bb3, #bb4, #bb5, #hb1, #hb2, #hb3, #hb4, #hb
 const feedLevel = $('#hb3, #hb4, #hb5, #hb6, #hb7, #hb8, #hb9, #hb10');
 const tiredLevel = $('#tb3, #tb4, #tb5, #tb6, #tb7, #tb8, #tb9, #tb10');
 const boredLevel = $('#bb3, #bb4, #bb5, #bb6, #bb7, #bb8, #bb9, #bb10');
-const yourTamagotchi = new Tamagotchi();
+const tom = new Tamagotchi();
 const hatchImage = ['https://media1.giphy.com/media/3lx1OUokCgBTPS4DFG/giphy.gif?cid=ecf05e47771442bdb22af6ddc2c89551316152da100f9c7c&rid=giphy.gif', 'https://media2.giphy.com/media/8vRkhUchMLddbr7pBV/giphy.gif?cid=ecf05e47b6ce1d135251ccf7049f716c97e1fc4b661ae730&rid=giphy.gif', 'https://media0.giphy.com/media/1qbSNZXvP8QUA3hiXv/giphy.gif?cid=ecf05e4731992dab22ac2fc220b9e4fbc2f088a5ef899161&rid=giphy.gif'];
 const sleepImage = ['https://media2.giphy.com/media/9PtjeJA6KnTnMZIDED/giphy.gif?cid=ecf05e47771442bdb22af6ddc2c89551316152da100f9c7c&rid=giphy.gif', 'https://media3.giphy.com/media/1PgNN51VqTs8BcYOs6/giphy.gif?cid=ecf05e4745fd7e7c94f122107816f0e75e479f7c0b6e471d&rid=giphy.gif', 'https://media2.giphy.com/media/8YsZQaSI7c4f7g6bZm/giphy.gif?cid=ecf05e47f7068eb1757d83a7e5794a99c2b1fd93a60c78e4&rid=giphy.gif'];
 const wakeImage = ['https://media2.giphy.com/media/1AjEeRnDwO3Sc2VF7G/giphy.gif?cid=ecf05e47771442bdb22af6ddc2c89551316152da100f9c7c&rid=giphy.gif', 'https://media0.giphy.com/media/fxOcPNZkLa68iQ52l9/giphy.gif?cid=ecf05e4792a9c39c8bfd0ff9c8e046689c2eccac631f08c8&rid=giphy.gif', 'https://media0.giphy.com/media/1r8Sh7qL6jl5hKd82X/giphy.gif?cid=ecf05e47b6ce1d135251ccf7049f716c97e1fc4b661ae730&rid=giphy.gif'];
@@ -60,12 +91,14 @@ function randomNumber() {
 }
 function startTimer() {
 	const timer = setInterval(function() {
-		let tamagotchi = yourTamagotchi;
+		let tamagotchi = tom;
 		if (hungerTop.css('background-color') !== 'rgb(255, 0, 0)' && tiredTop.css('background-color') !== 'rgb(255, 0, 0)' && boredTop.css('background-color') !== 'rgb(255, 0, 0)' && hungerBottom.css('background-color') !== 'rgb(255, 255, 255)' && boredBottom.css('background-color') !== 'rgb(255, 255, 255)') {
 			time++;
 			console.log(time);
 			console.log(tamagotchi);
-			if (time % 60 === 0) {
+			if (time === 23) {
+				$('#evolve-button').css('visibility', 'visible');
+			} else if (time % 60 === 0) {
 				birthday();
 			} else if (time % 5 === 0 && tamagotchi.sleep) {
 				//for (let i = 1; i < 50; i++)
@@ -120,35 +153,35 @@ function boredTimer() {
 }
 
 function pickName() {
-	yourTamagotchi.name = prompt('give your Tamagotchi a name');
+	tom.name = prompt('give your Tamagotchi a name');
 	$('#name-button').css('visibility', 'hidden');
 	$('.name-paragraph').remove();
 	$('#hatch-button').css('visibility', 'visible');
-	return yourTamagotchi.name;
+	return tom.name;
 }
 
 function hatch() {
-	$('#name').append(`<h1 id="greeting">Hi! My name is ${yourTamagotchi.name}`);
+	$('#name').append(`<h1 id="greeting">Hi! My name is ${tom.name}`);
 	$('.button').css('visibility', 'visible');
 	$('#hatch-button').css('visibility', 'hidden');	
 	$('.buttons h1').remove();
 	$('img').attr('src', hatchImage[randomNumber()]);
 	startLevels.css('background-color', 'red');
-	$('.age').append(`<span>${yourTamagotchi.age}`);
+	$('.age').append(`<span>${tom.age}`);
 	startTimer();
 	}
 
 function death() {
 	$('img').attr('src', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQwYElBS0lUKIonisIFB0Gi2XG7D-dFGNNvXg&usqp=CAU');
-	$('.hatch').prepend(`<h1>${yourTamagotchi.name} has died. you should think about whether you are responsible enough for a pet`);
+	$('.hatch').prepend(`<h1>${tom.name} has died. you should think about whether you are responsible enough for a pet`);
 	$('.buttons button').css('visibility', 'hidden');
 	$('#greeting').remove();
 	$('#play-again').css('visibility', 'visible');
 }
 
 function birthday() {
-	yourTamagotchi.age++;
-	$('.age span').text(`${yourTamagotchi.age}`);	
+	tom.age++;
+	$('.age span').text(`${tom.age}`);	
 }
 
 function playAgain() {
@@ -159,21 +192,29 @@ function playAgain() {
 	$('.age span').remove();
 	$('div').css('background-color', 'rgb(255, 255, 255)');
 	$('img').attr('src', 'https://st2.depositphotos.com/3687485/10323/v/950/depositphotos_103239208-stock-illustration-color-easter-egg-cartoon-spring.jpg');
-	yourTamagotchi.age = 0;
+	tom.age = 0;
+	tom.evolved = false;
 	time = 0;
 }
 
 $('#name-button').on('click', pickName);
 $('#hatch-button').on('click', hatch);
 $('#sleep-button').on('click', function() {
-	yourTamagotchi.getSleep();
+	tom.getSleep();
 });
 $('#wake-up-button').on('click', function() {
-	yourTamagotchi.wakeUp();
-})
-$('#feed-button').on('click', yourTamagotchi.eat);
-$('#play-button').on('click', yourTamagotchi.play);
+	tom.wakeUp();
+});
+$('#feed-button').on('click', function() {
+	tom.eat()
+});
+$('#play-button').on('click', function() {
+	tom.play();
+});
 $('#play-again').on('click', playAgain);
+$('#evolve-button').on('click', function() {
+	tom.evolve();
+});
 
 
 
