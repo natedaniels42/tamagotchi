@@ -21,6 +21,7 @@ div {
 	border-radius: 50%;
 	background-color: rgb(255, 255, 255);
 }
+
 #pet {
 	height: 200px;
 	display: flex;
@@ -36,6 +37,10 @@ div {
 	border-radius: 20px;
 }
 
+#play-again {
+	visibility: hidden;
+}
+
 .hatch {
 	display: flex;
 	justify-content: center;
@@ -43,6 +48,9 @@ div {
 	margin: 20px;
 }
 
+#name-button {
+	visibility: visible;
+}
 #hatch-button {
 	visibility: hidden;
 	justify-content: center;
@@ -53,6 +61,7 @@ div {
 	background-color: #53bdde;
 	border: none;
 	border-radius: 20%;
+	cursor: pointer;
 
 }
 .buttons {
