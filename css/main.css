@@ -3,15 +3,29 @@
 }
 
 body {
-	background-image: url("https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v372-binn-sasi-09-swissdesignbackground_2.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=6f985f92d75684daff5ca2da83c41368");
+/*	background-image: url("https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v372-binn-sasi-09-swissdesignbackground_2.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=6f985f92d75684daff5ca2da83c41368");*/
 	font-family: 'Sriracha', cursive;
 	margin: 0 20vh;
 	background-size: cover;
+background: rgb(131,58,180);
+background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(217,158,158,1) 50%, rgba(252,176,69,1) 100%);
+}
+
+button {
+	width: 80px;
+	background-color: #53bdde;
+	border: none;
+	border-radius: 20%;
+	cursor: pointer;
 }
 
 #name {
-	color: #c70700;
+	color: #ffffff;
 	text-align: center;
+}
+
+#name-button {
+	visibility: visible;
 }
 
 div {
@@ -50,23 +64,11 @@ div {
 	margin: 20px;
 }
 
-#name-button {
-	visibility: visible;
-}
-
 #hatch-button {
 	visibility: hidden;
 	justify-content: center;
 }
 
- button {
-	width: 80px;
-	background-color: #53bdde;
-	border: none;
-	border-radius: 20%;
-	cursor: pointer;
-
-}
 .buttons {
 	height: 50px;
 	display: flex;
