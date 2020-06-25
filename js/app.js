@@ -93,7 +93,6 @@ function randomNumber() {
 
 function startTimer() {
 	const timer = setInterval(function() {
-		let tamagotchi = tom;
 		if (hungerTop.css('background-color') !== 'rgb(255, 0, 0)' && tiredTop.css('background-color') !== 'rgb(255, 0, 0)' && boredTop.css('background-color') !== 'rgb(255, 0, 0)' && hungerBottom.css('background-color') !== 'rgb(255, 255, 255)' && boredBottom.css('background-color') !== 'rgb(255, 255, 255)') {
 			time++;
 			$('#time').text(`${time}`);
@@ -103,8 +102,11 @@ function startTimer() {
 				birthday();
 			} else if (time % 60 === 0) {
 				birthday();
-			} else if (time % 5 === 0 && tamagotchi.sleep) {
+			} else if (time % 5 === 0 && tom.sleep) {
 				sleepTimer();
+				if (tiredBottom.css('background-color') === 'rgb(255, 255, 255)') {
+					tom.wakeUp();
+				}
 			} else if (time % 10 === 0) {
 				hungerTimer();
 				tiredTimer();

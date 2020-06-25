@@ -9,67 +9,69 @@
 	<script defer src="js/app.js" type="text/javascript"></script>
 </head>
 <body>
-	<section id="name">
-		<h1>Welcome to your very own Tamagotchi</h1>
-		<p class="name-paragraph">Click here to pick a name</p>
-		<button id="name-button">Name</button>
-	</section>
-	<section id="status-bars">
-		<span id="hunger">Hunger</span>
-		<div id="hb1" class="hunger-bar"></div>
-		<div id="hb2" class="hunger-bar"></div>
-		<div id="hb3" class="hunger-bar"></div>
-		<div id="hb4" class="hunger-bar"></div>
-		<div id="hb5" class="hunger-bar"></div>
-		<div id="hb6" class="hunger-bar"></div>
-		<div id="hb7" class="hunger-bar"></div>
-		<div id="hb8" class="hunger-bar"></div>
-		<div id="hb9" class="hunger-bar"></div>
-		<div id="hb10" class="hunger-bar"></div>
-		<br>
-		<span id="tiredness">Tiredness</span>
-		<div id="tb1" class="tiredness-bar"></div>
-		<div id="tb2" class="tiredness-bar"></div>
-		<div id="tb3" class="tiredness-bar"></div>
-		<div id="tb4" class="tiredness-bar"></div>
-		<div id="tb5" class="tiredness-bar"></div>
-		<div id="tb6" class="tiredness-bar"></div>
-		<div id="tb7" class="tiredness-bar"></div>
-		<div id="tb8" class="tiredness-bar"></div>
-		<div id="tb9" class="tiredness-bar"></div>
-		<div id="tb10" class="tiredness-bar"></div>
-		<br>
-		<span id="boredom">Boredom</span>
-		<div id="bb1" class="boredom-bar"></div>
-		<div id="bb2" class="boredom-bar"></div>
-		<div id="bb3" class="boredom-bar"></div>
-		<div id="bb4" class="boredom-bar"></div>
-		<div id="bb5" class="boredom-bar"></div>
-		<div id="bb6" class="boredom-bar"></div>
-		<div id="bb7" class="boredom-bar"></div>
-		<div id="bb8" class="boredom-bar"></div>
-		<div id="bb9" class="boredom-bar"></div>
-		<div id="bb10" class="boredom-bar"></div>
-		<br>
-		<p class="age">Age: </p>
-		<span>Time: </span><span id="time">0</span>
-	</section>
-	<section id="pet">
-		<img src="https://st2.depositphotos.com/3687485/10323/v/950/depositphotos_103239208-stock-illustration-color-easter-egg-cartoon-spring.jpg">
-		<button id="play-again">Play again?</button>
-	</section>
-	<section class="hatch">
-		<button id="hatch-button">Hatch</button>
-	</section>
-	<section class="buttons">
-		<button id="feed-button" class='button'>Feed</button>
-		<button id="sleep-button" class='button'>Sleep</button>
-		<button id="wake-up-button" class='button'>Wake Up</button>
-		<button id="play-button" class='button'>Play</button>
-	</section>	
-	<section class="evolve">
-		<button id="evolve-button">Evolve</button>
-	</section>
+	<main>
+		<header id="name">
+			<h1>Welcome to your very own Tamagotchi</h1>
+			<p class="name-paragraph">Click here to pick a name</p>
+			<button id="name-button">Name</button>
+		</header>
+		<section id="status-bars">
+			<span id="hunger">Hunger</span>
+			<div id="hb1" class="hunger-bar"></div>
+			<div id="hb2" class="hunger-bar"></div>
+			<div id="hb3" class="hunger-bar"></div>
+			<div id="hb4" class="hunger-bar"></div>
+			<div id="hb5" class="hunger-bar"></div>
+			<div id="hb6" class="hunger-bar"></div>
+			<div id="hb7" class="hunger-bar"></div>
+			<div id="hb8" class="hunger-bar"></div>
+			<div id="hb9" class="hunger-bar"></div>
+			<div id="hb10" class="hunger-bar"></div>
+			<br>
+			<span id="tiredness">Tiredness</span>
+			<div id="tb1" class="tiredness-bar"></div>
+			<div id="tb2" class="tiredness-bar"></div>
+			<div id="tb3" class="tiredness-bar"></div>
+			<div id="tb4" class="tiredness-bar"></div>
+			<div id="tb5" class="tiredness-bar"></div>
+			<div id="tb6" class="tiredness-bar"></div>
+			<div id="tb7" class="tiredness-bar"></div>
+			<div id="tb8" class="tiredness-bar"></div>
+			<div id="tb9" class="tiredness-bar"></div>
+			<div id="tb10" class="tiredness-bar"></div>
+			<br>
+			<span id="boredom">Boredom</span>
+			<div id="bb1" class="boredom-bar"></div>
+			<div id="bb2" class="boredom-bar"></div>
+			<div id="bb3" class="boredom-bar"></div>
+			<div id="bb4" class="boredom-bar"></div>
+			<div id="bb5" class="boredom-bar"></div>
+			<div id="bb6" class="boredom-bar"></div>
+			<div id="bb7" class="boredom-bar"></div>
+			<div id="bb8" class="boredom-bar"></div>
+			<div id="bb9" class="boredom-bar"></div>
+			<div id="bb10" class="boredom-bar"></div>
+			<br>
+			<p class="age">Age: </p>
+			<span>Time: </span><span id="time">0</span>
+		</section>
+		<section id="pet">
+			<img src="https://st2.depositphotos.com/3687485/10323/v/950/depositphotos_103239208-stock-illustration-color-easter-egg-cartoon-spring.jpg">
+			<button id="play-again">Play again?</button>
+		</section>
+		<section class="hatch">
+			<button id="hatch-button">Hatch</button>
+		</section>
+		<section class="buttons">
+			<button id="feed-button" class='button'>Feed</button>
+			<button id="sleep-button" class='button'>Sleep</button>
+			<button id="wake-up-button" class='button'>Wake Up</button>
+			<button id="play-button" class='button'>Play</button>
+		</section>	
+		<section class="evolve">
+			<button id="evolve-button">Evolve</button>
+		</section>
+	</main>
 </body>
 </html>
 
