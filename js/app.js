@@ -66,6 +66,8 @@ class Tamagotchi {
 	}
 }
 
+let time = 0;
+const tom = new Tamagotchi();
 const hatchButton = $('#hatch-button');
 const hungerTop = $('#hb10');
 const tiredTop = $('#tb10');
@@ -79,30 +81,28 @@ const startLevels = $('#bb1, #bb2, #bb3, #bb4, #bb5, #hb1, #hb2, #hb3, #hb4, #hb
 const feedLevel = $('#hb3, #hb4, #hb5, #hb6, #hb7, #hb8, #hb9, #hb10');
 const tiredLevel = $('#tb3, #tb4, #tb5, #tb6, #tb7, #tb8, #tb9, #tb10');
 const boredLevel = $('#bb3, #bb4, #bb5, #bb6, #bb7, #bb8, #bb9, #bb10');
-const tom = new Tamagotchi();
+
 const hatchImage = ['https://media1.giphy.com/media/3lx1OUokCgBTPS4DFG/giphy.gif?cid=ecf05e47771442bdb22af6ddc2c89551316152da100f9c7c&rid=giphy.gif', 'https://media2.giphy.com/media/8vRkhUchMLddbr7pBV/giphy.gif?cid=ecf05e47b6ce1d135251ccf7049f716c97e1fc4b661ae730&rid=giphy.gif', 'https://media0.giphy.com/media/1qbSNZXvP8QUA3hiXv/giphy.gif?cid=ecf05e4731992dab22ac2fc220b9e4fbc2f088a5ef899161&rid=giphy.gif'];
 const sleepImage = ['https://media2.giphy.com/media/9PtjeJA6KnTnMZIDED/giphy.gif?cid=ecf05e47771442bdb22af6ddc2c89551316152da100f9c7c&rid=giphy.gif', 'https://media3.giphy.com/media/1PgNN51VqTs8BcYOs6/giphy.gif?cid=ecf05e4745fd7e7c94f122107816f0e75e479f7c0b6e471d&rid=giphy.gif', 'https://media2.giphy.com/media/8YsZQaSI7c4f7g6bZm/giphy.gif?cid=ecf05e47f7068eb1757d83a7e5794a99c2b1fd93a60c78e4&rid=giphy.gif'];
 const wakeImage = ['https://media2.giphy.com/media/1AjEeRnDwO3Sc2VF7G/giphy.gif?cid=ecf05e47771442bdb22af6ddc2c89551316152da100f9c7c&rid=giphy.gif', 'https://media0.giphy.com/media/fxOcPNZkLa68iQ52l9/giphy.gif?cid=ecf05e4792a9c39c8bfd0ff9c8e046689c2eccac631f08c8&rid=giphy.gif', 'https://media0.giphy.com/media/1r8Sh7qL6jl5hKd82X/giphy.gif?cid=ecf05e47b6ce1d135251ccf7049f716c97e1fc4b661ae730&rid=giphy.gif'];
 const playImage = ['https://media0.giphy.com/media/atajvz5OSnwlg07vXN/giphy.gif?cid=ecf05e47589b1e9bc488eb65a860716cdea8653d4ce01a1a&rid=giphy.gif', 'https://media1.giphy.com/media/fik3syvAT6YXbRWjF5/giphy.gif?cid=ecf05e4731992dab22ac2fc220b9e4fbc2f088a5ef899161&rid=giphy.gif', 'https://media1.giphy.com/media/Y4sWCxVW2vHbGWfJPb/giphy.gif?cid=ecf05e4792a9c39c8bfd0ff9c8e046689c2eccac631f08c8&rid=giphy.gif'];
-let time = 0;
 
 function randomNumber() {
 	return Math.floor(Math.random() * 3);
 }
+
 function startTimer() {
 	const timer = setInterval(function() {
 		let tamagotchi = tom;
 		if (hungerTop.css('background-color') !== 'rgb(255, 0, 0)' && tiredTop.css('background-color') !== 'rgb(255, 0, 0)' && boredTop.css('background-color') !== 'rgb(255, 0, 0)' && hungerBottom.css('background-color') !== 'rgb(255, 255, 255)' && boredBottom.css('background-color') !== 'rgb(255, 255, 255)') {
 			time++;
 			console.log(time);
-			console.log(tamagotchi);
-			if (time === 23) {
+			if (time === 180) {
 				$('#evolve-button').css('visibility', 'visible');
+				birthday();
 			} else if (time % 60 === 0) {
 				birthday();
 			} else if (time % 5 === 0 && tamagotchi.sleep) {
-				//for (let i = 1; i < 50; i++)
-				console.log('works');
 				sleepTimer();
 			} else if (time % 10 === 0) {
 				hungerTimer();
@@ -177,6 +177,7 @@ function death() {
 	$('.buttons button').css('visibility', 'hidden');
 	$('#greeting').remove();
 	$('#play-again').css('visibility', 'visible');
+	$('#evolve-button').css('visibility', 'hidden');
 }
 
 function birthday() {

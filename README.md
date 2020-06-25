@@ -2,7 +2,7 @@
 
 This is a game based on the pocket keychain game developed in the 90's.  In the game you have to care for a digital pet.  If you neglect any of it's basic needs it dies. 
 
-User Stories
+## User Stories
 
 In the original game the pet usually starts as an egg.  The beginning screen should include text telling the player the name of the game as well as an image of an egg.  You want the player to be able to name the pet.  There should be a button that will allow them to do that.
 
@@ -23,3 +23,51 @@ As the pet reaches certain ages it could gain new abilities, like evolving or gi
 When the pet dies, the timer, status bars, and age should all stop.  The pet image should change to an image to show the pet is dead.  Also, a statement should pop up that says that the pet died.  There should also be a new button that asks if the player would like to play again.
 
 When play again is pressed, all the original settings should be restored and the game starts over.      
+
+
+## Wireframes
+
+Initial loading page
+![](initial-page.JPG)
+
+Name prompt page
+![](name-prompt-page.JPG)
+
+Hatch page
+![](hatch-page.JPG)
+
+Main page
+![](main-page.JPG)
+
+Play again page
+![](play-again-page.JPG)
+
+## Technologies Utilized
+
+HTML
+CSS
+Javascript
+
+## Milestones
+
+### Day 1
+HTML layout
+CSS styling
+Beginning of the Javascript:
+	Class established
+	Tamagotchi instatiated
+	Basic button functionality
+
+### Day 2
+More Javascript:
+	Added more button functionality
+	Set up timer
+	Made play again option
+
+### Day 3
+Cleaned up javascript
+Added evolve method to class
+Set up animation
+Fixed edge cases
+Touch up on CSS
+
