@@ -38,7 +38,7 @@ class Tamagotchi {
 		}
 	}
 	getSleep() {
-		if (!this.sleep) {
+		if (!this.sleep) { 
 			this.sleep = true;
 			if (this.evolved) {
 				$('img').attr('src', 'https://media2.giphy.com/media/gB0vERk5kFR5u/giphy.gif?cid=ecf05e47307356bb540b51256b67e29bb86c80379dd76755&rid=giphy.gif');

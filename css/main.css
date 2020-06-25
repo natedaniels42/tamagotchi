@@ -3,31 +3,50 @@
 }
 
 body {
-/*	background-image: url("https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v372-binn-sasi-09-swissdesignbackground_2.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=6f985f92d75684daff5ca2da83c41368");*/
 	font-family: 'Sriracha', cursive;
-	margin: 0 20vh;
 	background-size: cover;
-background: rgb(131,58,180);
-background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(217,158,158,1) 50%, rgba(252,176,69,1) 100%);
+	background: rgb(131,58,180);
+    background: -webkit-linear-gradient(left, rgba(131,58,180,1) 0%, rgba(217,158,158,1) 50%, rgba(252,176,69,1) 100%);
+    background: -o-linear-gradient(left, rgba(131,58,180,1) 0%, rgba(217,158,158,1) 50%, rgba(252,176,69,1) 100%);
+    background: linear-gradient(to right, rgba(131,58,180,1) 0%, rgba(217,158,158,1) 50%, rgba(252,176,69,1) 100%);
 }
 
 button {
 	width: 80px;
+	height: 40px;
 	background-color: #53bdde;
 	border: none;
 	border-radius: 20%;
 	cursor: pointer;
 }
 
+button:hover {
+	width: 100px;
+	height: 40px;
+} 
+
 #name {
 	color: #ffffff;
 	text-align: center;
+	height: 150px;
+}
+
+#name h1 {
+	font-size: 40px;
+}
+
+#name p {
+	font-size: 25px;
 }
 
 #name-button {
 	visibility: visible;
 }
 
+#status-bars {
+	position: relative;
+	margin-top: 50px;
+}
 div {
 	border: 2px solid black;
 	display: inline-block;
@@ -49,8 +68,8 @@ div {
 	justify-content: center;
 	width: 300px;
 	height: 300px;
-	opacity: .9;
 	border-radius: 20px;
+	mix-blend-mode: multiply;
 }
 
 #play-again {
@@ -70,7 +89,7 @@ div {
 }
 
 .buttons {
-	height: 50px;
+	height: 70px;
 	display: flex;
 	justify-content: center;
 	align-content: center;
