@@ -96,6 +96,7 @@ function startTimer() {
 		let tamagotchi = tom;
 		if (hungerTop.css('background-color') !== 'rgb(255, 0, 0)' && tiredTop.css('background-color') !== 'rgb(255, 0, 0)' && boredTop.css('background-color') !== 'rgb(255, 0, 0)' && hungerBottom.css('background-color') !== 'rgb(255, 255, 255)' && boredBottom.css('background-color') !== 'rgb(255, 255, 255)') {
 			time++;
+			$('#time').text(`${time}`);
 			console.log(time);
 			if (time === 180) {
 				$('#evolve-button').css('visibility', 'visible');
