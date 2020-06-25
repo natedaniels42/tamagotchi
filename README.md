@@ -1,6 +1,6 @@
 # Tamagotchi
 
-This is a game based on the pocket keychain game developed in the 90's.  In the game you have to care for a digital pet.  If you neglect any of it's basic needs it dies. 
+Tamagotchi is a game based on the pocket keychain game developed in the 90's.  In the game you have to care for a digital pet.  If you neglect any of it's basic needs it dies.  This is an updated version of that game.  
 
 ## User Stories
 
@@ -16,7 +16,7 @@ The feed button should make the hunger bar go down to 2.  If hunger is below 5 i
 
 The play button should work the same way as the feed button.  The boredom bar goes down to 2. If it is below 5, it would go to 1.  If it is at 1, it goes to 0.  If boredom is at 0, the player has overworked their pet and it dies.
 
-The sleep and wake up buttons should work differently. When the sleep button is pressed, the hunger and boredom bars stop moving.  At a specific interval, the tiredness bar will go down by 1. If the tiredness bar hits 0 the pet doesn't die.  When the player deicdes the pet is done sleeping, they can hit the wake up button.  Once they do, all the status bars will start to go up like normal.
+The sleep and wake up buttons should work differently. When the sleep button is pressed, the hunger and boredom bars stop moving.  At a specific interval, the tiredness bar will go down by 1. If the tiredness bar hits 0 the pet will wake up and the status bars will begin moving again. The player can also choose when the pet is done sleeping by hitting the wake up button.  Once they do, all the status bars will start to go up like normal.
 
 As the pet reaches certain ages it could gain new abilities, like evolving or giving birth.
 
@@ -46,7 +46,7 @@ Play again page
 
 HTML
 CSS
-Javascript
+Javascript(with JQuery)
 
 ## Milestones
 
@@ -71,8 +71,14 @@ Set up animation
 Fixed edge cases
 Touch up on CSS
 
+### Day 4
+Added last bit of javascript functionality
 
 
+## Notes
+
+The images came from: https://giphy.com/.
+The linear gradient for the background came from: https://cssgradient.io/.
 
 
 
