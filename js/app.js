@@ -61,7 +61,7 @@ class Tamagotchi {
 		if (!this.sleep) {
 			this.evolved = true;
 			$('#evolve-button').css('visibility', 'hidden');
-			$('img').attr('src', 'https://media0.giphy.com/media/Tf3BH96icg4BwOxWBL/giphy.gif?cid=ecf05e47135313d04f250f615a43aa434cb92a74fa058781&rid=giphy.gif');
+			$('img').attr('src', 'https://media0.giphy.com/media/ZC01ghDLdXYTpfwzdB/source.gif');
 		}
 	}
 }
