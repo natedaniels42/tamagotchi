@@ -5,6 +5,7 @@ class Tamagotchi {
 		this.age = 0;
 		this.evolved = false;
 	}
+	//Adjusts hunger level depending on current level and changes pet image
 	eat() {
 		if (!this.sleep) {
 			if (this.evolved) {
@@ -21,6 +22,7 @@ class Tamagotchi {
 			}
 		}
 	}
+	//Adjusts boredom level depending on current level and changes pet image
 	play() {
 		if (!this.sleep) {
 			if (this.evolved) {
@@ -37,6 +39,7 @@ class Tamagotchi {
 			}
 		}
 	}
+	//Changes pet image and changes sleep attribute to true
 	getSleep() {
 		if (!this.sleep) { 
 			this.sleep = true;
@@ -47,6 +50,7 @@ class Tamagotchi {
 			}
 		}
 	}
+	//Changes pet image and change sleep attribute to false
 	wakeUp() {
 		if (this.sleep) {
 			this.sleep = false;
@@ -57,6 +61,7 @@ class Tamagotchi {
 			}
 		}
 	}	
+	//Changes evolved attribute to true and changes pet image
 	evolve() {
 		if (!this.sleep) {
 			this.evolved = true;
@@ -66,8 +71,13 @@ class Tamagotchi {
 	}
 }
 
+
 let time = 0;
+
+//Instatiated Tamagotchi
 const tom = new Tamagotchi();
+
+//DOM variables
 const hatchButton = $('#hatch-button');
 const hungerTop = $('#hb10');
 const tiredTop = $('#tb10');
@@ -82,15 +92,18 @@ const feedLevel = $('#hb3, #hb4, #hb5, #hb6, #hb7, #hb8, #hb9, #hb10');
 const tiredLevel = $('#tb3, #tb4, #tb5, #tb6, #tb7, #tb8, #tb9, #tb10');
 const boredLevel = $('#bb3, #bb4, #bb5, #bb6, #bb7, #bb8, #bb9, #bb10');
 
+//Image variables
 const hatchImage = ['https://media1.giphy.com/media/3lx1OUokCgBTPS4DFG/giphy.gif?cid=ecf05e47771442bdb22af6ddc2c89551316152da100f9c7c&rid=giphy.gif', 'https://media2.giphy.com/media/8vRkhUchMLddbr7pBV/giphy.gif?cid=ecf05e47b6ce1d135251ccf7049f716c97e1fc4b661ae730&rid=giphy.gif', 'https://media0.giphy.com/media/1qbSNZXvP8QUA3hiXv/giphy.gif?cid=ecf05e4731992dab22ac2fc220b9e4fbc2f088a5ef899161&rid=giphy.gif'];
 const sleepImage = ['https://media2.giphy.com/media/9PtjeJA6KnTnMZIDED/giphy.gif?cid=ecf05e47771442bdb22af6ddc2c89551316152da100f9c7c&rid=giphy.gif', 'https://media3.giphy.com/media/1PgNN51VqTs8BcYOs6/giphy.gif?cid=ecf05e4745fd7e7c94f122107816f0e75e479f7c0b6e471d&rid=giphy.gif', 'https://media2.giphy.com/media/8YsZQaSI7c4f7g6bZm/giphy.gif?cid=ecf05e47f7068eb1757d83a7e5794a99c2b1fd93a60c78e4&rid=giphy.gif'];
 const wakeImage = ['https://media2.giphy.com/media/1AjEeRnDwO3Sc2VF7G/giphy.gif?cid=ecf05e47771442bdb22af6ddc2c89551316152da100f9c7c&rid=giphy.gif', 'https://media0.giphy.com/media/fxOcPNZkLa68iQ52l9/giphy.gif?cid=ecf05e4792a9c39c8bfd0ff9c8e046689c2eccac631f08c8&rid=giphy.gif', 'https://media0.giphy.com/media/1r8Sh7qL6jl5hKd82X/giphy.gif?cid=ecf05e47b6ce1d135251ccf7049f716c97e1fc4b661ae730&rid=giphy.gif'];
 const playImage = ['https://media0.giphy.com/media/atajvz5OSnwlg07vXN/giphy.gif?cid=ecf05e47589b1e9bc488eb65a860716cdea8653d4ce01a1a&rid=giphy.gif', 'https://media1.giphy.com/media/fik3syvAT6YXbRWjF5/giphy.gif?cid=ecf05e4731992dab22ac2fc220b9e4fbc2f088a5ef899161&rid=giphy.gif', 'https://media1.giphy.com/media/Y4sWCxVW2vHbGWfJPb/giphy.gif?cid=ecf05e4792a9c39c8bfd0ff9c8e046689c2eccac631f08c8&rid=giphy.gif'];
 
+//Random number producer
 function randomNumber() {
 	return Math.floor(Math.random() * 3);
 }
 
+//Begin game timer and control timed events
 function startTimer() {
 	const timer = setInterval(function() {
 		if (hungerTop.css('background-color') !== 'rgb(255, 0, 0)' && tiredTop.css('background-color') !== 'rgb(255, 0, 0)' && boredTop.css('background-color') !== 'rgb(255, 0, 0)' && hungerBottom.css('background-color') !== 'rgb(255, 255, 255)' && boredBottom.css('background-color') !== 'rgb(255, 255, 255)') {
@@ -119,6 +132,7 @@ function startTimer() {
 	}, 1000);
 }
 
+//Handles the change in tired level while sleeping at the set interval
 function sleepTimer() {
 	for (let i = 10; i > 0; i--) {
 		if ($(`#tb${i}`).css('backgroundColor') !== 'rgb(255, 255, 255)') {
@@ -128,6 +142,7 @@ function sleepTimer() {
 	}
 }
 
+//Handles the change in hunger level at the set interval
 function hungerTimer() {
 	for (let i = 1; i <= 10; i++) {
 		if ($(`#hb${i}`).css('background-color') !== 'rgb(255, 0, 0)') {
@@ -137,6 +152,7 @@ function hungerTimer() {
 	}
 }
 
+//Handles the change in tired level at the set interval
 function tiredTimer() {
 	for (let i = 1; i <= 10; i++) {
 		if ($(`#tb${i}`).css('background-color') !== 'rgb(255, 0, 0)') {
@@ -146,6 +162,7 @@ function tiredTimer() {
 	}
 }
 
+//Handles the change in boredness level at the set interval
 function boredTimer() {
 	for (let i = 1; i <= 10; i++) {
 		if ($(`#bb${i}`).css('background-color') !== 'rgb(255, 0, 0)') {
@@ -155,6 +172,7 @@ function boredTimer() {
 	}
 }
 
+//Allows user to pick the name of their pet
 function pickName() {
 	tom.name = prompt('give your Tamagotchi a name');
 	$('#name-button').css('visibility', 'hidden');
@@ -163,6 +181,7 @@ function pickName() {
 	return tom.name;
 }
 
+//Changes the image from the hatch image to a pet image and begins the game timer
 function hatch() {
 	$('#name').append(`<h1 id="greeting">Hi! My name is ${tom.name}`);
 	$('.button').css('visibility', 'visible');
@@ -174,6 +193,7 @@ function hatch() {
 	startTimer();
 	}
 
+//Handles the end conditions of the game	
 function death() {
 	$('img').attr('src', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQwYElBS0lUKIonisIFB0Gi2XG7D-dFGNNvXg&usqp=CAU');
 	$('.hatch').prepend(`<h1>${tom.name} has died. you should think about whether you are responsible enough for a pet`);
@@ -183,11 +203,13 @@ function death() {
 	$('#evolve-button').css('visibility', 'hidden');
 }
 
+//Handles the change in age at set intervals
 function birthday() {
 	tom.age++;
 	$('.age span').text(`${tom.age}`);	
 }
 
+//Resets all levels to beginning levels and starts the game again
 function playAgain() {
 	$('#name').append("<p class='name-paragraph'>Click here to pick a name");
 	$('#name-button').css('visibility', 'visible');
@@ -201,6 +223,8 @@ function playAgain() {
 	time = 0;
 }
 
+
+//Event listeners
 $('#name-button').on('click', pickName);
 $('#hatch-button').on('click', hatch);
 $('#sleep-button').on('click', function() {
