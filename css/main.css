@@ -14,14 +14,14 @@ button {
 	height: 40px;
 	background-color: #53bdde;
 	border: none;
-	border-radius: 20%;
+	border-radius: 10%;
 	cursor: pointer;
+	box-shadow: 3px 3px 10px 0 black, -3px -3px 10px 0 lightgray;
 }
 
-button:hover {
-	width: 100px;
-	height: 40px;
-} 
+button:active {
+	box-shadow: inset -3px -3px 10px 0 lightgray, inset 3px 3px 10px 0 black;
+}
 
 #name {
 	color: #ffffff;
@@ -97,7 +97,6 @@ div {
 	width: 80px;
 	background-color: #53bdde;
 	border: none;
-	border-radius: 30%;
 	margin: 0 50px;
 	visibility: hidden;
 }
